@@ -1,0 +1,11 @@
+@import '~normalize.css/normalize.css';
+@import './variables';
+
+body {
+  background-color: $c-green-1;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1344px;
+}
