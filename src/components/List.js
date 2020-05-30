@@ -1,5 +1,6 @@
 import React, { useCallback, useState, useEffect } from 'react'
 import { allPokemons } from '../services/api'
+import Card from './Card'
 
 export default function List() {
   const [pokemons, setPokemons] = useState([])
@@ -16,5 +17,10 @@ export default function List() {
     fetchPokemons()
   }, [fetchPokemons])
 
-  return <div className="list"></div>
+  const setUpCards = () =>
+    pokemons.map((pokemon) => <Card key={pokemon.name} pokemon={pokemon} />)
+
+  return (
+    <div className="list list--grid">{pokemons.length && setUpCards()}</div>
+  )
 }
