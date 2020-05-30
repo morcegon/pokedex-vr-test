@@ -1,6 +1,7 @@
 import React, { useCallback, useState, useEffect } from 'react'
 import { allPokemons } from '../services/api'
 import Card from './Card'
+import Pagination from './Pagination'
 
 export default function List() {
   const [pokemons, setPokemons] = useState([])
@@ -8,10 +9,15 @@ export default function List() {
   const fetchPokemons = useCallback(async () => {
     const resp = await allPokemons()
 
+    console.log(resp)
+
     if (!resp.status) {
       setPokemons(resp.results)
     }
   }, [])
+
+  const onClickNext = () => {}
+  const onClickPrev = () => {}
 
   useEffect(() => {
     fetchPokemons()
@@ -23,6 +29,12 @@ export default function List() {
     ))
 
   return (
-    <div className="list list--grid">{pokemons.length && setUpCards()}</div>
+    <section>
+      <div className="list list--grid">{pokemons.length && setUpCards()}</div>
+      <Pagination
+        onClickPrev={() => onClickPrev()}
+        onClickNext={() => onClickNext()}
+      />
+    </section>
   )
 }
