@@ -5,7 +5,7 @@ import '../scss/app.scss'
 import PropTypes from 'prop-types'
 
 export default function Layout({ children }) {
-  return <div class="container">{children}</div>
+  return <div className="container">{children}</div>
 }
 
 Layout.propTypes = {
