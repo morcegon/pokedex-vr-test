@@ -1,0 +1,17 @@
+@mixin containerSize {
+  @media (min-width: $w-fullhd) {
+    width: $w-fullhd;
+  }
+
+  @media (max-width: $w-fullhd - 1) and (min-width: $w-widescreen) {
+    width: $w-widescreen;
+  }
+}
+
+@mixin centralizeImage($height: 100%, $width: 100%) {
+  img {
+    object-fit: contain;
+    height: $height;
+    width: $width;
+  }
+}

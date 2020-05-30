@@ -1,0 +1,10 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  &__button {
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}
