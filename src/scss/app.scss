@@ -10,11 +10,11 @@ body {
   background-color: $c-green-1;
   font-family: $f-Roboto;
   font-size: 1.6rem;
+  font-weight: 400;
 }
 
 .container {
   margin: 0 auto;
-
   @include containerSize;
 }
 

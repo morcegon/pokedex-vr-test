@@ -18,7 +18,9 @@ export default function List() {
   }, [fetchPokemons])
 
   const setUpCards = () =>
-    pokemons.map((pokemon) => <Card key={pokemon.name} pokemon={pokemon} />)
+    pokemons.map((pokemon, index) => (
+      <Card key={pokemon.name} index={index} pokemon={pokemon} />
+    ))
 
   return (
     <div className="list list--grid">{pokemons.length && setUpCards()}</div>
