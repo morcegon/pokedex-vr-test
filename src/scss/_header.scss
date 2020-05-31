@@ -1,0 +1,31 @@
+.header {
+  margin-bottom: 3rem;
+  padding-top: 2rem;
+
+  &__logo {
+    align-items: center;
+    display: flex;
+    justify-items: flex-start;
+
+    &-image {
+      height: 5rem;
+
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+
+      img {
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    &-title {
+      color: $c-red-1;
+      font-family: $f-bebas;
+      font-size: 4rem;
+      margin: 0;
+    }
+  }
+}

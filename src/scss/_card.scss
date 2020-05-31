@@ -1,0 +1,50 @@
+.card {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 15rem;
+  margin: 0 1.5rem 2rem 1.5rem;
+  position: relative;
+  transition: 100ms ease-in;
+  width: calc(10% - 3rem);
+
+  &__image {
+    background-color: $c-grey-3;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.05);
+    display: block;
+    height: 50%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    width: 90%;
+
+    @include centralizeImage;
+
+    img {
+      filter: saturate(0.2);
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-0.5rem);
+    transform: scale(1.5);
+    z-index: 10;
+
+    .card__image {
+      box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.1);
+
+      img {
+        filter: saturate(1);
+      }
+    }
+  }
+
+  &__name {
+    color: $c-blue-2;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+}
