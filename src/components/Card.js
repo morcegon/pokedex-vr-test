@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import { pad } from '../shared/helpers'
+import React, { useEffect, useState, useContext } from 'react'
 
 import PropTypes from 'prop-types'
+
+import context from './AppContext'
 
 export default function Card({ pokemon, index }) {
   const [id, setId] = useState(null)
   const [image, setImage] = useState(null)
+
+  const { setDetail } = useContext(context)
 
   const getPokemonId = (url) => {
     const parsed = url.split('/')
@@ -15,8 +18,7 @@ export default function Card({ pokemon, index }) {
   }
 
   const setUpPicture = (id) => {
-    const imageId = pad(id, 3)
-    return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${imageId}.png`
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
   }
 
   useEffect(() => {
@@ -26,10 +28,12 @@ export default function Card({ pokemon, index }) {
   }, [pokemon])
 
   return (
-    <div tabIndex={index + 1} className="card">
-      <span className="card__number">#{id}</span>
+    <div
+      onClick={() => setDetail({ show: true, pokemonId: id })}
+      tabIndex={index + 1}
+      className="card">
       <picture className="card__image">
-        <img src={image} alt="" />
+        <img src={image} alt={pokemon.name} title={pokemon.name} />
       </picture>
       <div className="card__name">{pokemon.name}</div>
     </div>

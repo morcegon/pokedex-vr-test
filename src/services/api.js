@@ -5,9 +5,14 @@ export const instance = axios.create({
   timeout: 1000,
 })
 
-export const allPokemons = async () => {
+export const allPokemons = async (offset = 0, limit = 20) => {
   try {
-    const resp = await instance.get('/pokemon')
+    const resp = await instance.get('/pokemon', {
+      params: {
+        offset,
+        limit,
+      },
+    })
     return resp.data
   } catch (err) {
     return err.response
