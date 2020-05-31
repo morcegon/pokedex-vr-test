@@ -11,6 +11,7 @@
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0",
     "react-scripts": "3.4.1"
   },
   "scripts": {
@@ -42,6 +43,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-import-helpers": "^1.0.2",
     "eslint-plugin-jest": "^23.13.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.20.0",

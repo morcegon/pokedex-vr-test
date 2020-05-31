@@ -1,3 +1,23 @@
+$types: (
+  'bug': #9ed149,
+  'dark': #483c31,
+  'dragon': #8d00d2,
+  'eletric': #eccd00,
+  'fairy': #f38fde,
+  'fighting': #85201e,
+  'fire': #ff0000,
+  'flying': #9a88eb,
+  'ghost': #6d28a8,
+  'grass': #00e939,
+  'ground': #d3b650,
+  'normal': #bebdae,
+  'poison': #c600b0,
+  'psychic': #ff007f,
+  'rock': #a8af4c,
+  'steel': #adacbd,
+  'water': #0089f2,
+);
+
 @mixin containerSize {
   @media (min-width: $w-fullhd) {
     width: $w-fullhd;
@@ -13,5 +33,14 @@
     object-fit: contain;
     height: $height;
     width: $width;
+  }
+}
+
+@mixin types {
+  @each $type, $typeColor in $types {
+    &--#{$type} {
+      background-color: $typeColor;
+      border-color: darken($typeColor, 10%);
+    }
   }
 }

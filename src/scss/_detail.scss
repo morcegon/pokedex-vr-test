@@ -1,0 +1,102 @@
+.detail {
+  align-items: center;
+  background: rgba($c-grey-2, 0.5);
+  display: flex;
+  height: 100%;
+  left: 0;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+
+  &__modal {
+    background-color: $c-grey-3;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    height: 70vh;
+    padding: 2rem;
+    width: 45rem;
+
+    &-close {
+      background: none;
+      border: none;
+      font-size: 2.5rem;
+      margin-left: auto;
+      padding: 0;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.pokemon {
+  &__header {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  &__number {
+    color: $c-blue-1;
+    font-size: 3rem;
+    font-weight: 900;
+    margin-right: 1rem;
+    text-align: left;
+  }
+
+  &__name {
+    color: $c-blue-1;
+    font-size: 3rem;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  &__image {
+    align-items: center;
+    background-color: $c-green-1;
+    border: 0.1rem solid darken($c-green-1, 15%);
+    display: flex;
+    height: 25rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    width: 100%;
+
+    @include centralizeImage;
+  }
+
+  &__types {
+    display: flex;
+
+    &-item {
+      background-color: $c-grey-1;
+      border-radius: 100em;
+      border-style: solid;
+      border-width: 0.15rem;
+      height: 1.2rem;
+      position: relative;
+      width: 1.2rem;
+
+      &:not(:last-child) {
+        margin-right: 0.5rem;
+      }
+
+      &::after {
+        background-color: rgba(255, 255, 255, 0.4);
+        border-radius: 100em;
+        content: '';
+        display: block;
+        height: 40%;
+        position: absolute;
+        right: 0.2rem;
+        top: 0.1rem;
+        width: 40%;
+      }
+
+      @include types;
+    }
+  }
+}

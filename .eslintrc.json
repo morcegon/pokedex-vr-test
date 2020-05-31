@@ -1,11 +1,12 @@
 {
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
   },
   "extends": [
     "standard",
-    "plugin:react/recommended",
+    "prettier",
+    "eslint:recommended",
     "plugin:react/recommended",
     "plugin:jest/all",
     "plugin:prettier/recommended",
@@ -24,14 +25,34 @@
     "sourceType": "module"
   },
   "plugins": [
-    "prettier",
     "react",
-    "jest",
-    "testing-library",
+    "jsx-ally",
+    "import",
     "eslint-plugin-import-helpers",
+    "jest",
+    "prettier",
+    "testing-library",
     "react-hooks"
   ],
   "rules": {
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
     "prettier/prettier": "error",
     "import-helpers/order-imports": [
       "warn",
@@ -47,6 +68,20 @@
           "ignoreCase": true
         }
       }
-    ]
+    ],
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "components": ["Label"],
+        "required": {
+          "some": ["nesting", "id"]
+        },
+        "allowChildren": false
+      }
+    ],
+    "react/jsx-closing-bracket-location": [1, {
+      "selfClosing": "line-aligned",
+      "nonEmpty": "after-props"
+    }]
   }
 }

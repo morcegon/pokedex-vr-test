@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { pad } from '../shared/helpers'
 
 import PropTypes from 'prop-types'
 

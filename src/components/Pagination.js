@@ -9,15 +9,13 @@ export default function Pagination({ onClickNext, onClickPrev, disablePrev }) {
         type="button"
         onClick={() => onClickPrev()}
         className="pagination__button"
-        disabled={disablePrev}
-      >
+        disabled={disablePrev}>
         Prev
       </button>
       <button
         type="button"
         onClick={() => onClickNext()}
-        className="pagination__button"
-      >
+        className="pagination__button">
         Next
       </button>
     </div>
@@ -26,6 +24,6 @@ export default function Pagination({ onClickNext, onClickPrev, disablePrev }) {
 
 Pagination.propTypes = {
   onClickNext: PropTypes.func.isRequired,
-  onClickNext: PropTypes.func.isRequired,
+  onClickPrev: PropTypes.func.isRequired,
   disablePrev: PropTypes.bool.isRequired,
 }
