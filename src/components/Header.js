@@ -1,6 +1,7 @@
 import React from 'react'
 
 import PokedexIcon from '../images/pokedex.svg'
+import Search from './Search'
 
 export default function Header() {
   return (
@@ -11,6 +12,8 @@ export default function Header() {
         </div>
         <h1 className="header__logo-title">Pokédex</h1>
       </div>
+
+      <Search />
     </header>
   )
 }

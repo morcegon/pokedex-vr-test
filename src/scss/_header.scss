@@ -1,4 +1,6 @@
 .header {
+  align-items: center;
+  display: flex;
   margin-bottom: 3rem;
   padding-top: 2rem;
 
@@ -6,6 +8,7 @@
     align-items: center;
     display: flex;
     justify-items: flex-start;
+    margin-right: 3rem;
 
     &-image {
       height: 5rem;

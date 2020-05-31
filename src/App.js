@@ -12,12 +12,14 @@ export default function App() {
     pokemonId: null,
   })
 
+  const [keyword, setKeyword] = useState(null)
+
   return (
     <div>
       <Layout>
-        <Context.Provider value={{ detail, setDetail }}>
+        <Context.Provider value={{ detail, setDetail, setKeyword }}>
           <Header />
-          <List />
+          <List keyword={keyword} />
           {detail.show && <Detail />}
         </Context.Provider>
       </Layout>

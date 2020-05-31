@@ -1,0 +1,26 @@
+.search {
+  flex: 1;
+
+  &__form {
+    display: flex;
+  }
+
+  &__input {
+    border: 0.1rem solid lighten($c-grey-1, 30%);
+    box-sizing: border-box;
+    padding: 0.6rem 2rem;
+    width: 100%;
+  }
+
+  &__button {
+    align-items: center;
+    background-color: $c-red-1;
+    border: 0;
+    border-radius: 0;
+    color: white;
+    display: flex;
+    font-weight: 900;
+    justify-content: center;
+    padding: 0 2rem;
+  }
+}
