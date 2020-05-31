@@ -5,19 +5,29 @@ import Pagination from './Pagination'
 
 export default function List() {
   const [pokemons, setPokemons] = useState([])
+  const [fetchParams, setFetchParams] = useState({
+    offset: 0,
+    limit: 50,
+  })
 
   const fetchPokemons = useCallback(async () => {
-    const resp = await allPokemons()
-
-    console.log(resp)
+    const resp = await allPokemons(fetchParams.offset, fetchParams.limit)
 
     if (!resp.status) {
       setPokemons(resp.results)
     }
-  }, [])
+  }, [fetchParams])
 
-  const onClickNext = () => {}
-  const onClickPrev = () => {}
+  const onClickNext = () => {
+    const offset = fetchParams.offset + fetchParams.limit
+    setFetchParams({ ...fetchParams, offset })
+  }
+  const onClickPrev = () => {
+    if (fetchParams.offset > 0) {
+      const offset = fetchParams.offset - fetchParams.limit
+      setFetchParams({ ...fetchParams, offset })
+    }
+  }
 
   useEffect(() => {
     fetchPokemons()
@@ -32,6 +42,7 @@ export default function List() {
     <section>
       <div className="list list--grid">{pokemons.length && setUpCards()}</div>
       <Pagination
+        disablePrev={fetchParams.offset === 0}
         onClickPrev={() => onClickPrev()}
         onClickNext={() => onClickNext()}
       />
