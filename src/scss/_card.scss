@@ -47,4 +47,12 @@
     font-weight: 500;
     text-transform: capitalize;
   }
+
+  @media (max-width: 1023px) {
+    width: calc(20% - 3rem);
+  }
+
+  @include mobile {
+    width: calc(50% - 3rem);
+  }
 }

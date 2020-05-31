@@ -31,4 +31,12 @@
       margin: 0;
     }
   }
+
+  @include mobile {
+    flex-direction: column;
+
+    &__logo {
+      margin: 0 0 2rem 0;
+    }
+  }
 }
