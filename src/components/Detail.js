@@ -60,6 +60,21 @@ export default function Detail() {
               </picture>
 
               <div className="pokemon__types">{showTypes(pokemon.types)}</div>
+
+              <div className="pokemon__feature">
+                <div className="pokemon__feature-item">
+                  <strong>Height:</strong> {pokemon.height / 10}m
+                </div>
+                <div className="pokemon__feature-item">
+                  <strong>Weight:</strong> {pokemon.weight / 10}kg
+                </div>
+
+                {pokemon.stats.map((stat) => (
+                  <div className="pokemon__feature-item">
+                    <strong>{stat.stat.name}:</strong> {stat.base_stat}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         )}
