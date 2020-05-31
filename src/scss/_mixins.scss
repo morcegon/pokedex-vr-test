@@ -26,6 +26,10 @@ $types: (
   @media (max-width: $w-fullhd - 1) and (min-width: $w-widescreen) {
     width: $w-widescreen;
   }
+
+  @media (max-width: $w-mobile) {
+    width: calc(100% - 1.5rem);
+  }
 }
 
 @mixin centralizeImage($height: 100%, $width: 100%) {
@@ -42,5 +46,11 @@ $types: (
       background-color: $typeColor;
       border-color: darken($typeColor, 10%);
     }
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $w-mobile) {
+    @content;
   }
 }
