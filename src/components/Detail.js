@@ -5,17 +5,20 @@ import { pokemonDetail } from '../services/api'
 import { RiCloseLine } from 'react-icons/ri'
 import { pad } from '../shared/helpers'
 
+import Loading from './Loading'
+
 export default function Detail() {
+  const [loading, setLoading] = useState(true)
   const { detail, setDetail } = useContext(context)
   const [pokemon, setPokemon] = useState(false)
 
   const fetchDetails = useCallback(async () => {
+    setLoading(true)
     const resp = await pokemonDetail(detail.pokemonId)
-
-    console.log(resp)
 
     if (!resp.status) {
       setPokemon(resp)
+      setLoading(false)
     }
   }, [detail])
 
@@ -41,7 +44,8 @@ export default function Detail() {
       className="detail"
       onClick={() => setDetail({ ...detail, show: false })}>
       <div className="detail__modal">
-        {pokemon && (
+        {loading && <Loading />}
+        {!loading && pokemon && (
           <div className="pokemon">
             <div className="pokemon__header">
               <span className="pokemon__number">#{pokemon.id}</span>
